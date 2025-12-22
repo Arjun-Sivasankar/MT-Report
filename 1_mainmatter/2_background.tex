@@ -1,0 +1,62 @@
+\iflanguage{ngerman}
+{\chapter{Grundlagen}}
+{\chapter{Background}}
+\label{sec:background}
+
+\section{Background and Problem Formulation}
+\label{sec:background-problem}
+
+EHR systems capture diverse data categorized into structured and unstructured formats. While data is structured, such as standard diagnosis codes, medication lists, and laboratory results, are quantitative, over 80\% of valuable clinical insights often reside within unstructured free-text documentation.4
+In advanced predictive modeling for EHRs, inputs are segmented into specific modalities based on established clinical practice and data availability in datasets like MIMIC-IV. For diagnosis prediction, crucial structured modalities include:
+\begin{itemize}
+    \item Medication Codes: Anatomical Therapeutic Chemical Classification System (ATC) codes.
+    \item Laboratory Tests: Logical Observation Identifiers Names and Codes (LOINC).
+    \item Procedure Codes: ICD-9 or ICD-10 Procedure Coding System (ICD-CM).
+    \item Clinical Text Components: Structured parsing of unstructured clinical notes (eg, discharge summaries) to extract specific, highly relevant sections such as Chief Complaint, History of Present Illness (HPI), Brief Hospital Course, and Family History.
+\end{itemize}
+Models designed for complex, vague, or subjective diagnostic criteria become essential for "outcome classification," translating high-dimensional input vectors into predictive outcomes. Any model relying solely on limited structured codes operates under a severe informational deficit, underscoring the necessity of a multimodal approach. The challenge is therefore not only to model each modality well, but also to combine them in a way that supports robust inference under heterogeneous evidence quality \cite{rajkomar2018scalable}.
+
+This thesis focuses on two clinically motivated diagnosis prediction problems that sit at different points on the retrospective--prospective spectrum and therefore stress different modelling capabilities. Both tasks are formulated as multi-label prediction over a pruned ICD-9 vocabulary, reflecting the heavy-tailed diagnostic distribution and the need for stable evaluation.
+
+\subsection{Clinical Motivation}
+\label{subsec:background-motivation}
+
+\textbf{Current-visit diagnosis prediction} supports automated or semi-automated discharge coding, reducing manual workload and improving standardisation. Accurate assistance for coding is a practical instance of CDSS, where model outputs must be clinically coherent and grounded in available evidence \cite{sutton2020cdss}.
+
+\textbf{Next-visit diagnosis prediction} supports longitudinal risk stratification: forecasting diagnoses likely to occur in future encounters within a defined horizon. Compared to current-visit coding, forecasting requires explicit modelling of temporal disease progression and integration of longitudinal history with current presentation.
+
+\subsection{Prediction Tasks}
+\label{subsec:background-tasks}
+
+\paragraph{Task 1: Current-visit diagnosis prediction (automated coding).}
+Given the information available for a single admission---excluding any explicit discharge diagnosis list---the goal is to predict the set of ICD-9-CM codes assigned at discharge. Inputs include demographics, structured events during the admission (e.g., medications, procedures, laboratories), and selected discharge summary sections.
+
+\paragraph{Task 2: Next-visit diagnosis prediction (history-aware forecasting).}
+For an index visit $T_n$, the goal is to predict diagnoses that will occur in one or more subsequent visits within a future prediction window (12 months). Inputs combine (i) current-visit context at $T_n$ and (ii) a structured history summary derived from $T_0,\dots,T_{n-1}$. To preserve a realistic prospective setting, note sections that leak outcomes or late-course summaries are excluded from textual inputs.
+
+\subsection{Motivation for Multimodal Fusion and Knowledge Enrichment}
+\label{subsec:background-fusion-kg}
+
+Two modelling constraints motivate the thesis design.
+
+\paragraph{Multimodal complementarity.}
+Structured codes alone can miss nuance and narrative context, while text alone may not reliably preserve standardised semantics or longitudinal symbolic history. Combining structured and unstructured inputs is therefore necessary to form higher-fidelity patient representations.
+
+\paragraph{Long-tail labels and budgeted prediction.}
+Diagnosis spaces are heavy-tailed; under a strict ``top-$K$'' generation budget (e.g., outputting at most 12 diagnoses), improving recall requires better prioritisation of plausible diagnoses. Inductive biases are especially valuable for rare codes.
+
+A clinical KG provides a principled source of inductive bias. By mapping cohort concepts to UMLS identifiers \cite{bodenreider2004umls} and retrieving short, interpretable relations, KG evidence can connect weakly expressed EHR signals to candidate diagnoses. However, because LLM context windows are finite, KG augmentation must be retrieval-precise; otherwise it can introduce noise and degrade performance. This motivates the thesis emphasis on KG-augmented fine-tuning (training the model to use KG facts) rather than inference-only KG prompting.
+
+\section{Research Objectives}
+\label{sec:research-objectives}
+
+Given the above formulation, the thesis pursues the following objectives:
+\begin{enumerate}
+    \item \textbf{Develop strong multimodal LLM baselines for diagnosis prediction} using instruction-tuned Transformer backbones \cite{vaswani2017attention,ouyang2022training,touvron2023llama} adapted via parameter-efficient fine-tuning \cite{hu2021lora}.
+    \item \textbf{Improve prediction accuracy through multimodal fusion choices} by analysing how prompt structure, history summarisation, and leakage-controlled text affect current-visit coding versus next-visit forecasting.
+    \item \textbf{Improve prediction accuracy via KG enrichment} by constructing a UMLS-centric clinical KG \cite{bodenreider2004umls} and integrating patient-conditioned path retrieval as external evidence for diagnosis ranking.
+    \item \textbf{Quantify when knowledge helps (and when it hurts)} via ablations separating inference-only KG prompting from KG-augmented fine-tuning, including head--tail analyses under strict output budgets.
+    % \item \textbf{Position the approach relative to established ICD prediction work} by grounding the problem in prior literature on automated code assignment from clinical text \cite{mullenbach-etal-2018-explainable}.
+\end{enumerate}
+
+

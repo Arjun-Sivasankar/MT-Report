@@ -1,0 +1,6 @@
+Category,Count
+Singleton (freq=1),1
+Rare (2-9),32
+Uncommon (10-99),953
+Common (100-999),771
+Very Common (≥1000),122

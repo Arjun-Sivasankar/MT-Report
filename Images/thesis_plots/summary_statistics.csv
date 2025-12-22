@@ -1,0 +1,17 @@
+Metric,Value
+Total Admissions,53561
+Total Unique Codes,1879
+Total Code Occurrences,637962
+Mean Codes per Admission,11.91
+Median Codes per Admission,11
+Std Dev Codes per Admission,6.94
+Min Codes per Admission,0
+Max Codes per Admission,39
+Singleton Codes (freq=1),1
+Rare Codes (freq≤10),39
+Gini Coefficient,0.732
+Codes for 50% Coverage,97
+Codes for 80% Coverage,430
+Codes for 90% Coverage,752
+Most Frequent Code Frequency,22362
+Least Frequent Code Frequency,1

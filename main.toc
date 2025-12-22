@@ -1,0 +1,167 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline Abstract}{VII}{section*.7}%
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\nonumberline Zusammenfassung}{VII}{section*.8}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline Symbols and Acronyms}{XIII}{chapter*.10}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {paragraph}{\nonumberline Dataset context.}{2}{paragraph*.13}%
+\contentsline {paragraph}{\nonumberline Thesis structure.}{3}{paragraph*.15}%
+\contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Background and Problem Formulation}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Clinical Motivation}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Prediction Tasks}{6}{subsection.2.1.2}%
+\contentsline {paragraph}{\nonumberline Task 1: Current-visit diagnosis prediction (automated coding).}{6}{paragraph*.17}%
+\contentsline {paragraph}{\nonumberline Task 2: Next-visit diagnosis prediction (history-aware forecasting).}{6}{paragraph*.19}%
+\contentsline {subsection}{\numberline {2.1.3}Motivation for Multimodal Fusion and Knowledge Enrichment}{6}{subsection.2.1.3}%
+\contentsline {paragraph}{\nonumberline Multimodal complementarity.}{6}{paragraph*.21}%
+\contentsline {paragraph}{\nonumberline Long-tail labels and budgeted prediction.}{6}{paragraph*.23}%
+\contentsline {section}{\numberline {2.2}Research Objectives}{6}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Related Work}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction to Clinical Predictive Modeling and EHR Data}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}The Critical Role of Automated Diagnosis Prediction in Modern Healthcare}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}The Multimodal and Sequential Challenges of Electronic Health Records (EHRs)}{9}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Evolution of Deep Learning for EHR Sequence Modeling}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Historical Deep Learning Methods: Recurrent Architectures}{10}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}The Transition to Transformer Architectures}{10}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Multimodal Integration and Feature Fusion Strategies}{10}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Analysis of Bimodal Prediction Tasks: Concurrent vs. Longitudinal}{11}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Current Visit Diagnosis Prediction: : Concurrent Context Synthesis}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Next Visit Diagnosis Prediction: Causal Temporal Forecasting}{11}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Contrasting Requirements and Architectural Alignment}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Large Language Models (LLMs) and Efficient Domain Adaptation}{12}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}LLM Selection and Generative Capabilities in Medicine}{12}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Low-resource fine-tuning techniques}{12}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}The Formulation of EHR Input for LLM Processing}{13}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Knowledge Graph Augmentation and Path Mining}{13}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Constructing the Clinical Knowledge Foundation (UMLS)}{13}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Methodology for Knowledge Path Mining (H1 and H2)}{13}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Ablation Study Design: Decomposing Knowledge Contribution}{14}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.1}The Role of RAG in Clinical Generative Models}{14}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Hybrid RAG Architecture for Clinical History}{14}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}The RAG Ablation: Quantifying Empirical Value}{15}{subsection.3.6.3}%
+\contentsline {chapter}{\numberline {4}Methods and Implementation}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Data Sources}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Core MIMIC-IV Modules Used in This Work}{17}{subsection.4.1.1}%
+\contentsline {paragraph}{\nonumberline Structured EHR codes (hospital/ICU modules).}{17}{paragraph*.27}%
+\contentsline {paragraph}{\nonumberline Unstructured notes (MIMIC-IV-Note discharge summaries).}{17}{paragraph*.29}%
+\contentsline {paragraph}{\nonumberline Linkage.}{17}{paragraph*.31}%
+\contentsline {paragraph}{\nonumberline Modalities Not Used}{18}{paragraph*.33}%
+\contentsline {section}{\numberline {4.2}Data Preprocessing, Cohort Construction, and Cohort Analysis}{18}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Structured Clinical Events: Mapping, Early-Course Filtering, and Pruning}{19}{subsection.4.2.1}%
+\contentsline {paragraph}{\nonumberline Diagnoses (ICD filtering).}{19}{paragraph*.37}%
+\contentsline {paragraph}{\nonumberline Procedures (ICD filtering and normalisation).}{19}{paragraph*.39}%
+\contentsline {paragraph}{\nonumberline Medication mapping and early-course proxy.}{19}{paragraph*.41}%
+\contentsline {paragraph}{\nonumberline Laboratory discretisation.}{19}{paragraph*.43}%
+\contentsline {paragraph}{\nonumberline Vocabulary pruning (long-tail control).}{19}{paragraph*.45}%
+\contentsline {subsection}{\numberline {4.2.2}Unstructured Text: Discharge Summary Parsing and Leakage Control}{19}{subsection.4.2.2}%
+\contentsline {paragraph}{\nonumberline Section extraction.}{20}{paragraph*.48}%
+\contentsline {paragraph}{\nonumberline Task-specific section selection (leakage-aware).}{20}{paragraph*.50}%
+\contentsline {subsection}{\numberline {4.2.3}Admission-Level Multimodal Records}{20}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Task-Specific Cohort Construction}{20}{subsection.4.2.4}%
+\contentsline {paragraph}{\nonumberline Task~1: Current-visit diagnosis prediction.}{20}{paragraph*.52}%
+\contentsline {paragraph}{\nonumberline Task~2: History-aware diagnosis prediction (longitudinal setting).}{21}{paragraph*.54}%
+\contentsline {paragraph}{\nonumberline Cold-start handling (explicit empty-history case).}{21}{paragraph*.56}%
+\contentsline {paragraph}{\nonumberline Core + cold-start cohort design.}{21}{paragraph*.58}%
+\contentsline {paragraph}{\nonumberline Cohort Statistics and Splits}{22}{paragraph*.61}%
+\contentsline {subsection}{\numberline {4.2.5}Diagnosis Label-Space Characterisation (Head--Tail)}{22}{subsection.4.2.5}%
+\contentsline {paragraph}{\nonumberline Split coverage and ``zero-shot'' codes.}{22}{paragraph*.70}%
+\contentsline {paragraph}{\nonumberline Tail-50 evaluation support.}{23}{paragraph*.73}%
+\contentsline {subsection}{\numberline {4.2.6}ICD-9 Chapters and Parent Categories}{23}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Multimorbidity and Admission Complexity}{23}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {4.2.8}Implications for Model Design and Evaluation}{24}{subsection.4.2.8}%
+\contentsline {section}{\numberline {4.3}Knowledge Graph Construction}{24}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Design Principles}{24}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Ontology Sources and Concept Space}{26}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Nodes and Relations}{27}{subsection.4.3.3}%
+\contentsline {paragraph}{\nonumberline Nodes.}{27}{paragraph*.80}%
+\contentsline {paragraph}{\nonumberline Relations.}{27}{paragraph*.82}%
+\contentsline {subsubsection}{\nonumberline Graph Statistics}{27}{subsubsection*.84}%
+\contentsline {subsection}{\numberline {4.3.4}Mapping Cohort Concepts to KG Nodes}{28}{subsection.4.3.4}%
+\contentsline {paragraph}{\nonumberline Patient-conditioned retrieval (subgraph induction).}{29}{paragraph*.88}%
+\contentsline {section}{\numberline {4.4}Model Architectures}{30}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Backbone LLM and Parameter-Efficient Fine-Tuning}{31}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}CodeGen: Direct ICD-9 Code Generation}{32}{subsection.4.4.2}%
+\contentsline {paragraph}{\nonumberline Prompt structure (high level).}{32}{paragraph*.91}%
+\contentsline {paragraph}{\nonumberline Illustrative prompt example (CodeGen).}{32}{paragraph*.93}%
+\contentsline {subsection}{\numberline {4.4.3}TextGen: Diagnosis-Term Generation with Semantic ICD Mapping}{33}{subsection.4.4.3}%
+\contentsline {paragraph}{\nonumberline Prompt structure (high level).}{33}{paragraph*.95}%
+\contentsline {paragraph}{\nonumberline Illustrative prompt example (TextGen).}{33}{paragraph*.97}%
+\contentsline {paragraph}{\nonumberline ICD Mapper (SapBERT + FAISS).}{34}{paragraph*.99}%
+\contentsline {paragraph}{\nonumberline Reuse across tasks.}{34}{paragraph*.101}%
+\contentsline {section}{\numberline {4.5}Training Procedure and Implementation Details}{34}{section.4.5}%
+\contentsline {paragraph}{\nonumberline Implementation and experiment scope.}{34}{paragraph*.103}%
+\contentsline {paragraph}{\nonumberline Optimisation and regularisation.}{34}{paragraph*.105}%
+\contentsline {paragraph}{\nonumberline Supervision masking and truncation safeguards.}{34}{paragraph*.107}%
+\contentsline {paragraph}{\nonumberline Training dynamics and model selection.}{35}{paragraph*.109}%
+\contentsline {paragraph}{\nonumberline Distributed training and stability.}{35}{paragraph*.114}%
+\contentsline {paragraph}{\nonumberline Inference configuration and output budget.}{35}{paragraph*.116}%
+\contentsline {paragraph}{\nonumberline Token budgets and prompt packing.}{35}{paragraph*.118}%
+\contentsline {section}{\numberline {4.6}Knowledge Graph Integration}{35}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}From Heterogeneous Codes to CUI-Level Concept Sets}{38}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Path Families H1 and H2 on the Global KG}{38}{subsection.4.6.2}%
+\contentsline {paragraph}{\nonumberline H1: Direct source-to-diagnosis paths (1-hop).}{38}{paragraph*.120}%
+\contentsline {paragraph}{\nonumberline H2: Indirect source-to-diagnosis paths (2-hop).}{39}{paragraph*.122}%
+\contentsline {subsection}{\numberline {4.6.3}Relation Canonicalisation and Weight Assignment}{39}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Textual Linearisation and Semantic Encoding}{40}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}RAG-Based Knowledge Injection for Textgen}{41}{subsection.4.6.5}%
+\contentsline {subsubsection}{\nonumberline Clinical query formation}{41}{subsubsection*.126}%
+\contentsline {subsubsection}{\nonumberline Retrieval of H1/H2 medical facts}{42}{subsubsection*.128}%
+\contentsline {subsubsection}{\nonumberline Knowledge-augmented prompts}{42}{subsubsection*.131}%
+\contentsline {subsubsection}{\nonumberline Offline preprocessing vs.\ online retrieval}{43}{subsubsection*.133}%
+\contentsline {subsection}{\numberline {4.6.6}Similarity Scoring: Unweighted vs.\ Relation-Weighted Retrieval}{44}{subsection.4.6.6}%
+\contentsline {subsubsection}{\nonumberline Unweighted semantic retrieval}{44}{subsubsection*.135}%
+\contentsline {subsubsection}{\nonumberline Relation-weighted retrieval}{44}{subsubsection*.137}%
+\contentsline {subsubsection}{\nonumberline Task-specific variants and ablations}{45}{subsubsection*.140}%
+\contentsline {subsection}{\numberline {4.6.7}Interpretability of KG-Enhanced Predictions}{45}{subsection.4.6.7}%
+\contentsline {section}{\numberline {4.7}Evaluation Setup}{46}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Data Partitions (Summary)}{46}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Label Space and Target Construction}{46}{subsection.4.7.2}%
+\contentsline {paragraph}{\nonumberline Pruned diagnosis vocabulary.}{46}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Task-specific temporal semantics of labels.}{47}{paragraph*.144}%
+\contentsline {subsection}{\numberline {4.7.3}Multi-Label Classification Metrics}{47}{subsection.4.7.3}%
+\contentsline {paragraph}{\nonumberline Micro-averaged precision, recall, and F1.}{47}{paragraph*.146}%
+\contentsline {paragraph}{\nonumberline Macro-averaged precision, recall, and F1.}{47}{paragraph*.148}%
+\contentsline {paragraph}{\nonumberline Sample-averaged precision, recall, and F1.}{48}{paragraph*.150}%
+\contentsline {subsection}{\numberline {4.7.4}Hierarchical and Parent-Level Metrics}{48}{subsection.4.7.4}%
+\contentsline {subsection}{\numberline {4.7.5}Axes of Comparison and Reported Metrics}{49}{subsection.4.7.5}%
+\contentsline {chapter}{\numberline {5}Results}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Task~1: Current-Visit Diagnosis Prediction}{51}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Baseline Performance: From Raw Backbones to Fine-Tuned Pipelines}{51}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Hierarchical Evaluation at the Parent-Code Level}{52}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Head--Tail Behaviour: Performance on Frequent vs.\ Rare Codes}{53}{subsection.5.1.3}%
+\contentsline {paragraph}{\nonumberline Top-50 codes (Head-50).}{53}{paragraph*.156}%
+\contentsline {paragraph}{\nonumberline Bottom-50 codes (Tail-50).}{54}{paragraph*.159}%
+\contentsline {subsection}{\numberline {5.1.4}Ablation: Augmenting KG Paths at Inference Only (No KG Training)}{54}{subsection.5.1.4}%
+\contentsline {paragraph}{\nonumberline Overall code-level effect.}{55}{paragraph*.163}%
+\contentsline {paragraph}{\nonumberline Why inference-only KG can fail.}{56}{paragraph*.166}%
+\contentsline {subsection}{\numberline {5.1.5}KG-Augmented Fine-Tuning (RAG-Style Variants)}{56}{subsection.5.1.5}%
+\contentsline {paragraph}{\nonumberline Overall code-level performance.}{56}{paragraph*.168}%
+\contentsline {paragraph}{\nonumberline Hierarchical (parent-level) performance.}{56}{paragraph*.172}%
+\contentsline {paragraph}{\nonumberline Head-50 vs.\ Tail-50 effects (long-tail focus).}{56}{paragraph*.175}%
+\contentsline {paragraph}{\nonumberline Interpretation: why Tail-50 improves under KG-augmented training.}{57}{paragraph*.180}%
+\contentsline {subsection}{\numberline {5.1.6}Interaction with Multimorbidity and the 12-Diagnosis Output Budget}{57}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Summary}{59}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Task~2: Next-Visit Diagnosis Prediction}{60}{section.5.2}%
+\contentsline {paragraph}{\nonumberline Experimental progression (Task~2).}{61}{paragraph*.184}%
+\contentsline {subsection}{\numberline {5.2.1}TextGen Baseline for History-Aware Next-Visit Prediction}{61}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Ablation: KG/RAG Augmentation at Inference Only}{61}{subsection.5.2.2}%
+\contentsline {subsubsection}{\nonumberline Overall code-level metrics}{62}{subsubsection*.187}%
+\contentsline {paragraph}{\nonumberline Interpretation.}{62}{paragraph*.191}%
+\contentsline {subsubsection}{\nonumberline Head--tail analysis}{63}{subsubsection*.193}%
+\contentsline {paragraph}{\nonumberline Head-50 (frequent codes).}{63}{paragraph*.195}%
+\contentsline {paragraph}{\nonumberline Tail-50 (rare codes).}{63}{paragraph*.198}%
+\contentsline {paragraph}{\nonumberline Key takeaway for tail behaviour.}{64}{paragraph*.202}%
+\contentsline {subsubsection}{\nonumberline Parent-category metrics (Top-50 parents)}{64}{subsubsection*.204}%
+\contentsline {subsection}{\numberline {5.2.3}Summary}{64}{subsection.5.2.3}%
+\contentsline {chapter}{\numberline {6}Conclusion and Further Work}{67}{chapter.6}%
+\contentsline {paragraph}{\nonumberline Conclusion for Task 1}{67}{paragraph*.208}%
+\contentsline {paragraph}{\nonumberline Conclusion for Task 2}{67}{paragraph*.210}%
+\contentsline {paragraph}{\nonumberline Future Work}{67}{paragraph*.212}%
+\contentsline {chapter}{\numberline {A}Appendix I}{77}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Additional Training Diagnostics: Codegen Pipeline}{77}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Additional Training Diagnostics: Textgen Pipeline for Task 1}{77}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Additional Training Diagnostics: Textgen Pipeline for Task 2}{77}{section.A.3}%
+\contentsline {chapter}{\numberline {B}Appendix II}{81}{appendix.B}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

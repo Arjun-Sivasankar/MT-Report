@@ -1,0 +1,45 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of Diagnosis Prediction Tasks in EHR Literature}}{12}{table.caption.24}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Task~1 cohort size and subject-level splits (after multimodal filtering).}}{22}{table.caption.62}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Task~2 cohort composition and final subject-level split sizes (Core + Cold-start injection).}}{22}{table.caption.63}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Code frequency categories (Task~1).}}{23}{table.caption.65}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Code frequency categories (Task~2).}}{24}{table.caption.66}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Summary statistics of the final medical knowledge graph used for retrieval and path linearization (\texttt {medical\_knowledge\_graph2.pkl}).}}{28}{table.caption.85}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Most frequent relationship labels (\texttt {rela}) in the KG (top-10). These are dominated by taxonomic links and part--whole / site relations, which are particularly useful for short-path reasoning and clinically tolerant generalisation.}}{31}{table.caption.86}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Task~1 (current-visit diagnosis prediction): comparison of raw backbones (\textbf {Base}), fine-tuned \textbf {CodeGen}, and fine-tuned \textbf {TextGen} across all backbones. Metrics are computed at the full ICD-9 code level on the held-out test set.}}{52}{table.caption.151}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Task~1 hierarchical evaluation at the ICD-9 parent (three-digit) level. Metrics computed after collapsing codes to parent categories (test set).}}{53}{table.caption.153}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Task~1 performance restricted to the Top-50 most frequent ICD-9 codes (Head-50) on the test set.}}{54}{table.caption.157}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Task~1 performance restricted to the Bottom-50 rarest ICD-9 codes (Tail-50) on the test set.}}{55}{table.caption.160}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Task~1 inference-only KG ablation (overall code-level). Same fine-tuned TextGen checkpoint; only inference prompt differs.}}{56}{table.caption.164}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Task~1 overall code-level metrics for KG-augmented (RAG) variants vs.\ Baseline TextGen (no KG at inference). Test set evaluation.}}{57}{table.caption.169}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Task~1 parent-level hierarchical metrics for KG-augmented (RAG) variants vs.\ Baseline TextGen (no KG at inference). Test set evaluation.}}{57}{table.caption.173}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Task~1 Top-50 (Head-50) metrics for KG-augmented variants vs.\ Baseline TextGen (no KG at inference).}}{59}{table.caption.176}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Task~1 Bottom-50 (Tail-50) metrics for KG-augmented variants vs.\ Baseline TextGen (no KG at inference).}}{59}{table.caption.177}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Improvements from Baseline TextGen (no KG at inference) to best KG-augmented variant per backbone (selected by overall micro-F1). Tail improvements are reported for the best tail-performing KG variant. Relative gains shown as percent.}}{60}{table.caption.182}%
+\contentsline {table}{\numberline {5.11}{\ignorespaces Task~2 overall code-level metrics (test set). \textbf {Baseline} is the history-aware TextGen system. KG variants augment \emph {only inference prompts} with retrieved KG paths (H1/H2; weighted/unweighted).}}{63}{table.caption.188}%
+\contentsline {table}{\numberline {5.12}{\ignorespaces Task~2 performance restricted to the Top-50 most frequent ICD-9 codes (Head-50).}}{63}{table.caption.196}%
+\contentsline {table}{\numberline {5.13}{\ignorespaces Task~2 performance restricted to the Bottom-50 rarest ICD-9 codes (Tail-50). Tail metrics are high-variance due to extremely low support.}}{65}{table.caption.199}%
+\contentsline {table}{\numberline {5.14}{\ignorespaces Task~2 hierarchical evaluation restricted to the Top-50 ICD-9 parent categories (three-digit level).}}{65}{table.caption.205}%
+\contentsline {table}{\numberline {5.15}{\ignorespaces Task~2 improvement summary from Baseline to the best KG inference variant (per backbone). Best Tail-50 mode may differ from best overall mode.}}{66}{table.caption.206}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Epoch-level training and validation loss for Codegen - Variant: Llama-3.2-1B on Task 1}}{78}{table.caption.216}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Epoch-level training and validation loss for Codegen - Variant: Llama-3.1-8B on Task 1}}{78}{table.caption.217}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Epoch-level training and validation loss for Codegen - Variant: Meditron3-8B on Task 1}}{78}{table.caption.218}%
+\contentsline {table}{\numberline {A.4}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Llama-3.2-1B on Task 1}}{78}{table.caption.219}%
+\contentsline {table}{\numberline {A.5}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Llama-3.1-8B on Task 1}}{78}{table.caption.220}%
+\contentsline {table}{\numberline {A.6}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Meditron3-8B on Task 1}}{79}{table.caption.221}%
+\contentsline {table}{\numberline {A.7}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Llama-3.2-1B on Task 2}}{79}{table.caption.222}%
+\contentsline {table}{\numberline {A.8}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Llama-3.1-8B on Task 2}}{79}{table.caption.223}%
+\contentsline {table}{\numberline {A.9}{\ignorespaces Epoch-level training and validation loss for Textgen - Variant: Meditron3-8B on Task 2}}{79}{table.caption.224}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,0 +1,16 @@
+\iflanguage{ngerman}
+{\chapter{Fazit und Ausblick}}
+{\chapter{Conclusion and Further Work}}
+
+\label{sec:conclusion}
+
+\paragraph{Conclusion for Task 1}
+Overall, Task~1 demonstrates that while a fine-tuned TextGen baseline is strong, \emph{structured knowledge only becomes consistently useful when the model is trained to consume it}. Inference-only KG prompting fails to deliver reliable gains, whereas KG-augmented fine-tuning yields systematic improvements across backbones and evaluation slices, including meaningful progress on Tail-50 diagnoses. These results support the thesis claim that external structured relations can improve diagnosis prioritisation under multimorbidity and a strict output budget, especially for underrepresented clinical conditions.
+
+\paragraph{Conclusion for Task 2}
+In Task~2, history-aware TextGen provides a strong baseline, while inference-only KG/RAG augmentation produces at most marginal overall improvements and does not reliably improve rare-code (Tail-50) recovery. These findings suggest that \emph{for next-visit prediction, structured KG evidence likely needs tighter integration (e.g., training-time alignment, improved temporal retrieval, or learning-to-rank under the 12-output budget) to yield consistent gains}, motivating more targeted knowledge-integration strategies in subsequent analysis.
+
+\paragraph{Future Work}
+Future research could explore additional methods for incorporating external knowledge, such as dynamic knowledge retrieval during inference or the use of more sophisticated knowledge graphs. Furthermore, investigating the impact of different types of structured information on model performance could provide deeper insights into the mechanisms at play.
+
+/textcolor{red}{Future work: Better temporal retrieval, training-time alignment of KG evidence, learning-to-rank under 12-output budget, dynamic knowledge retrieval during inference, more sophisticated knowledge graphs, impact of different types of structured information. Not this, But make it better}

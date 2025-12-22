@@ -1,0 +1,45 @@
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces CDSS overview \blx@tocontentsinit {0}\cite {sutton2020cdss}}}{2}{figure.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Data sources - MIMIC-IV \blx@tocontentsinit {0}\cite {johnson2023mimiciv}.}}{18}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Structured EHR codes and discharge summaries are extracted from MIMIC-IV, linked at the admission level, and transformed into model-ready inputs for Task~1 (current-visit prediction) and Task~2 (history-aware next-visit prediction).}}{18}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Power-law distribution of global ICD-9 diagnosis frequencies on a log--log scale, together with a fitted trend. The near-linear behaviour confirms a heavy-tailed, Zipf-like structure.}}{20}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Task~2 longitudinal input construction. Diagnoses are pooled across all prior visits, while procedures/medications/labs use only the most recent prior visit. Clinical text is taken from the current visit.}}{21}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Global diagnosis frequency rank plot for the retained ICD-9 codes. The green band marks the 50 most frequent codes (\emph {Head-50}), and the red band marks the 50 least frequent codes (\emph {Tail-50}).}}{23}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Top 50 most frequent ICD-9 diagnosis codes (Head-50) with global frequencies.}}{25}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Bottom 50 rarest ICD-9 diagnosis codes (Tail-50) with global frequencies. Many occur only a handful of times in the dataset.}}{26}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Complete dataset code coverage and zero-shot analysis. All test codes are seen in training, so evaluation focuses on frequency-driven difficulty rather than unseen-code generalisation.}}{27}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Presence of the globally-defined Tail-50 codes across Train/Validation/Test. Only a subset occurs in Validation and Test, motivating Tail-50 evaluation on the Tail-50$\cap $Test intersection.}}{27}{figure.caption.74}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces ICD-9 chapter-level distribution based on aggregated frequencies across all codes within each chapter range.}}{28}{figure.caption.75}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Top 50 ICD-9 parent categories (three-digit level) by aggregated frequency.}}{29}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Distribution of the number of diagnosis codes per admission. Dashed lines indicate median and mean.}}{30}{figure.caption.77}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Number of diagnoses per admission by dataset split. The three partitions exhibit similar distributions, indicating balanced multimorbidity across Train/Validation/Test.}}{30}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Architecture overview of the two diagnosis prediction pipelines. Both consume the same multimodal admission representation but differ in the output space and post-processing.}}{31}{figure.caption.89}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Task~1 (current-visit diagnosis prediction), Codegen pipeline. Training and validation loss across epochs for each backbone model.}}{35}{figure.caption.110}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Task~1 (current-visit diagnosis prediction), Textgen pipeline. Training and validation loss across epochs for each backbone model.}}{36}{figure.caption.111}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Task~2 (next-visit diagnosis prediction), Textgen pipeline. Training and validation loss across epochs for each backbone model.}}{37}{figure.caption.112}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Schematic illustration of the relation-weight derivation. Left: prompt and weighting guidelines used to compress 384 raw KG relations into 25 canonical types. Right: example of the resulting tiered weight assignments, with higher weights reserved for etiologic, treatment, and complication relations.}}{40}{figure.caption.123}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Medical fact index building phase. Structured codes from MIMIC-IV are mapped to CUIs, H1/H2 KG paths are extracted between source and diagnosis CUIs, linearised into textual statements, encoded with a SapBERT biomedical encoder, and stored as separate H1/H2 semantic indices together with relation-derived metadata (e.g.\ canonical relation types and path scores).}}{42}{figure.caption.124}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces RAG-based preprocessing phase. For each admission, the clinical note sections are encoded as a query, used to retrieve the top-$K$ relevant H1/H2 path facts from the KG indices, and combined with structured data to form a knowledge-augmented prompt for Textgen.}}{43}{figure.caption.129}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Similarity computation methods. Right branch: unweighted retrieval uses only cosine similarity between the clinical query and path embeddings. Left branch: relation-weighted retrieval combines semantic similarity with a relation-tier weight derived from canonical KG relation types, favouring diagnostically informative paths.}}{45}{figure.caption.138}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Task~1: flat (full-code) evaluation. Micro- and macro-averaged precision, recall, and F1 for \textbf {Base} (raw backbones), \textbf {CodeGen} (fine-tuned direct ICD-9 generation), and \textbf {TextGen} (fine-tuned diagnosis-term generation + semantic mapping) across all backbones.}}{53}{figure.caption.152}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Task~1 hierarchical evaluation: parent-level micro/macro precision, recall, and F1 for \textbf {Base}, \textbf {CodeGen}, and \textbf {TextGen} across backbones. Parent evaluation reveals clinically meaningful ``near misses'' at the full-code level.}}{54}{figure.caption.154}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Task~1: Head-50 vs Tail-50 comparison (e.g., micro-F1 and macro-F1) across CodeGen vs TextGen and base model.}}{55}{figure.caption.161}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Task~1: KG/RAG overall metrics: grouped bars (micro/macro P/R/F1) comparing Baseline vs.\ H1/H2 Unweighted vs.\ H1/H2 Weighted per backbone.}}{58}{figure.caption.170}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Task~1: KG/RAG head-tail plots: Head-50 vs Tail-50 micro-F1 (and/or macro-F1) for Baseline vs.\ KG variants.}}{60}{figure.caption.178}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \textbf {K-ablation study.} Increasing \(k\) improves performance up to \(k=16\), after which metrics plateau. The precision--recall curve highlights the trade-off as \(k\) increases, while the mean predicted terms/visit saturate, indicating limited benefit from larger output budgets.}}{61}{figure.caption.181}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces (Placeholder) Task~2 baseline metrics: overall micro/macro precision, recall, and F1 for the history-aware TextGen baseline across backbones.}}{62}{figure.caption.185}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces (Placeholder) Task~2 overall metrics: grouped bars (micro/macro P/R/F1) comparing Baseline vs.\ H1/H2 (weighted/unweighted) per backbone.}}{64}{figure.caption.189}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces (Placeholder) Task~2 head--tail plot: Head-50 vs Tail-50 micro-F1 (and/or macro-F1) for Baseline vs.\ KG variants. This figure should highlight the instability of Tail-50 under inference-only KG prompting.}}{66}{figure.caption.200}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
